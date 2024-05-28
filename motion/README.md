@@ -1,4 +1,4 @@
-#　現場報名活動頁
+# 現場報名活動頁
 
 vue3 + bootstrap5
 vue-router
