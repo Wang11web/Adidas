@@ -1,0 +1,74 @@
+@font-face {
+  font-family: adineuePROCond-R;
+  src: url('./adineuePROCond-Regular.otf');
+}
+
+body,html {
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+img {
+  max-width: 100%;
+}
+
+.vh_100 {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+.vw_100 {
+  width: 100vw;
+}
+
+.blue_bg {
+  width: 100vw;
+  z-index: -1;
+}
+
+.box {
+  width: 32vw;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.box_container {
+  min-width: 100vw;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.box_white {
+  transform: translateX(-10px);
+}
+
+.box_odd {
+  bottom: 17%;
+}
+
+.box_even {
+  bottom: 0;
+}
+
+.qrcode_box {
+  width: 90px;
+  top: 37%;
+  right: 19%;
+}
+
+.order_text {
+  font-family: adineuePROCond-R;
+  font-size: 60px;
+  letter-spacing: 4px;
+  transform: skew(-15deg);
+  bottom: 12%;
+  left: 26%;
+  color: #fff;
+}

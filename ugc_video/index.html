@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>adidasZNE</title>
+  <link rel="icon" href="./image/zne.png">
+  <meta name="google" content="notranslate" />
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="./js/TweenMax.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"crossorigin="anonymous">
+</head>
+<script>
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  window.addEventListener('resize', () => { let vh = window.innerHeight * 0.01; document.documentElement.style.setProperty('--vh', `${vh}px`); });
+  let vblob;
+  let url = new URL(location.href);
+  let vName = url.searchParams.get('time');
+  // vName = 1692290483047;
+  let urlOrder = url.searchParams.get('order').toString();
+  let order = urlOrder.length<4?("000"+urlOrder).substr(-4):urlOrder;
+  fetch(`https://adidasznelab.com.tw/Video/${vName}.mp4`)
+    .then(response => response.blob())
+    .then(blob => {
+      vblob = blob;
+      document.getElementById('load').remove();
+      document.getElementById('content').innerHTML = `
+      <img src="./image/logo.png" alt="adidas" width="320" class="mt-3 mb-4">
+      <div class="position-relative d-flex justify-content-center align-items-center h-100">
+        <div class="position-absolute white_box white_box_0"></div>
+        <div class="position-absolute white_box white_box_1"></div>
+        <div class="position-absolute white_box white_box_2"></div>
+        <div class="position-absolute white_box white_box_3"></div>
+        <div class="position-absolute user_number d-flex">
+          <div class="user_number_text">分身編號 </div>
+          <div class="user_number_number ms-2">#${order}</div>
+        </div>
+        <div class="position-relative h-100 overflow-hidden">
+          <img src="./image/frame.png" alt="lbg" class="number_frame">
+          <img src="./image/light.png" alt="light" width="250" class="breathe_light top_light position-absolute">
+          <img src="./image/light.png" alt="light" width="250" class="breathe_light bottom_light position-absolute">
+          <div class="position-absolute w-100 h-100 start-0 top-0 px-2">
+            <div class="position-relative py-3 h-100 d-flex justify-content-center overflow-hidden">
+              <video src="https://adidasznelab.com.tw/Video/${vName}.mp4" loop muted autoplay playsinline>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-3 mb-2">
+        <div class="d-flex flex-column">
+          <img src="./image/step1.png" alt="step1" width="50">
+          <div class="copy_btn" id="copy">
+            <img src="./image/copy_btn.png" alt="" width="150">
+          </div>
+        </div>
+        <div class="d-flex flex-column ms-4">
+          <img src="./image/step2.png" alt="step2" width="50">
+          <div class="download_btn" id="download">
+            <img src="./image/download_btn.png" alt="" width="150">
+          </div>
+        </div>
+      </div>
+      <img src="./image/word.png" alt="word" class="mb-3" width="340">`
+      init();
+    });
+</script>
+<body>
+  <video src="./image/bg.mp4" alt="" class="position-absolute bg_v" playsinline loop autoplay muted></video>
+  <div class='loading l5' id="load"></div>
+  <div class="position-relative w-100 h-100 d-flex flex-column align-items-center" id="content"></div>
+  <div id="copyBG" class="position-absolute top-0 start-0 copy_bg">複製成功</div>
+</body>
+<script src="./js/main.js"></script>
+</html>
