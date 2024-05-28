@@ -3,3 +3,5 @@
 1. 排隊報名頁面
 2. 工作人員平板
 3. 使用者個人化 ugc 頁
+
+![cover](https://github.com/Wang11web/Adidas/blob/main/cover.png)
